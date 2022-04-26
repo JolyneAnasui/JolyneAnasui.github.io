@@ -6,15 +6,15 @@
   
   <title>Install Notes | 念</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Node.js – Install https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;  一路next，“Automatically”选项勾选的话会先安装chocolatey，然后用choco安装最新版python和VS-workload-vctools，建议不勾  修改npm的cache与全局路径（先新建相应文件夹） 12npm config set prefix &quot;F:\nodejs\no">
+  <meta name="description" content="Node.js – Install https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;  一路next，“Automatically”选项勾选的话会先安装chocolatey，然后用choco安装最新版python和VS-workload-vctools，建议不勾  修改npm的全局路径与cache路径（先新建相应文件夹） 12npm config set prefix &quot;F:\nodejs\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Install Notes">
 <meta property="og:url" content="http://example.com/4ff129f86648/index.html">
 <meta property="og:site_name" content="念">
-<meta property="og:description" content="Node.js – Install https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;  一路next，“Automatically”选项勾选的话会先安装chocolatey，然后用choco安装最新版python和VS-workload-vctools，建议不勾  修改npm的cache与全局路径（先新建相应文件夹） 12npm config set prefix &quot;F:\nodejs\no">
+<meta property="og:description" content="Node.js – Install https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;  一路next，“Automatically”选项勾选的话会先安装chocolatey，然后用choco安装最新版python和VS-workload-vctools，建议不勾  修改npm的全局路径与cache路径（先新建相应文件夹） 12npm config set prefix &quot;F:\nodejs\">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-25T14:08:52.000Z">
-<meta property="article:modified_time" content="2022-04-26T07:16:43.957Z">
+<meta property="article:modified_time" content="2022-04-26T10:14:51.049Z">
 <meta property="article:author" content="JolyneAnasui">
 <meta name="twitter:card" content="summary">
   
@@ -100,16 +100,16 @@
 </li>
 <li><p>一路next，“Automatically”选项勾选的话会先安装chocolatey，然后用choco安装最新版python和VS-workload-vctools，建议不勾</p>
 </li>
-<li><p>修改npm的cache与全局路径（先新建相应文件夹）</p>
+<li><p>修改npm的全局路径与cache路径（先新建相应文件夹）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;F:\nodejs\node_global&quot;</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">&quot;F:\nodejs\node_cache&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>环境变量</p>
 <ol>
-<li>将用户变量下”Roaming\npm”修改为”nodejs\node_global”</li>
-<li>添加系统变量NODE_PATH: “F:\nodejs\node_global\node_modules”（文件夹不存在也没关系）</li>
+<li>将用户变量下<code>Roaming\npm</code>修改为<code>nodejs\node_global</code></li>
+<li>添加系统变量<code>NODE_PATH: F:\nodejs\node_global\node_modules</code>（文件夹不存在也没关系）</li>
 </ol>
 </li>
-<li><p>“F:\nodejs”修改User权限为完全控制</p>
+<li><p>文件夹<code>F:\nodejs</code>修改User权限为完全控制</p>
 </li>
 <li><p>验证</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">npm root -g</span><br></pre></td></tr></table></figure></li>
@@ -123,7 +123,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/4ff129f86648/" data-id="cl2fxe5770001m8vkc21e91xf" data-title="Install Notes" class="article-share-link">Share</a>
+      <a data-url="http://example.com/4ff129f86648/" data-id="cl2fzs6oz0001owvkahst04n9" data-title="Install Notes" class="article-share-link">Share</a>
       
       
       

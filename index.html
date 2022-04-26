@@ -94,13 +94,10 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h3 id="Hexo-Typora图片路径问题"><a href="#Hexo-Typora图片路径问题" class="headerlink" title="Hexo+Typora图片路径问题"></a>Hexo+Typora图片路径问题</h3><ol>
-<li><p>安装插件 hexo-asset-image，忽略vulnerabilities</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save https://github.com/CodeFalling/hexo-asset-image</span><br></pre></td></tr></table></figure>
-
-<p><img src="/40f293d078cd/image-20220426151854981.png"></p>
+<li><p><code>npm install --save https://github.com/CodeFalling/hexo-asset-image</code>安装插件 ，忽略vulnerabilities</p>
+<p><img src="/40f293d078cd/image-20220426175747765.png"></p>
 </li>
-<li><p>设置BlogRoot&#x2F;_config.yml</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<li><p>在<code>BlogRoot/_config.yml</code>中设置<code>post_asset_folder: true</code></p>
 </li>
 <li><p>设置Typora图片存储路径，hexo生成时<strong>无需</strong>删除同名文件夹前缀路径</p>
 <p><img src="/40f293d078cd/image-20220426152301285.png"></p>
@@ -109,12 +106,17 @@
 <p><img src="/40f293d078cd/image-20220426162221562.png"></p>
 </li>
 </ol>
-<h3 id="修改Hexo文章url-——-官方文档"><a href="#修改Hexo文章url-——-官方文档" class="headerlink" title="修改Hexo文章url —— 官方文档"></a>修改Hexo文章url —— <a target="_blank" rel="noopener" href="https://hexo.io/docs/permalinks">官方文档</a></h3><h3 id="Invalid-tag-name-“–-save”-in-npm"><a href="#Invalid-tag-name-“–-save”-in-npm" class="headerlink" title="Invalid tag name “–-save” in npm"></a>Invalid tag name “–-save” in npm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install GitUrl --save <span class="comment"># ×</span></span><br><span class="line">npm install --save GitUrl <span class="comment"># √</span></span><br></pre></td></tr></table></figure>
+<h3 id="Invalid-tag-name-“–-save”-in-npm"><a href="#Invalid-tag-name-“–-save”-in-npm" class="headerlink" title="Invalid tag name “–-save” in npm"></a>Invalid tag name “–-save” in npm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install GitUrl --save <span class="comment"># ×</span></span><br><span class="line">npm install --save GitUrl <span class="comment"># √</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Mess"><a href="#Mess" class="headerlink" title="Mess"></a>Mess</h3><ul>
+<li>修改Hexo文章url —— <a target="_blank" rel="noopener" href="https://hexo.io/docs/permalinks">官方文档</a></li>
+<li>Typora中进行图片缩放后会将其改为img标签，Hexo生成后不会被处理成p标签，失去margin</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/40f293d078cd/" data-id="cl2fxe57a0002m8vk5jj24wcu" data-title="Hexo编辑技巧" class="article-share-link">Share</a>
+      <a data-url="http://example.com/40f293d078cd/" data-id="cl2fzs6p80002owvkczceb3qx" data-title="Hexo编辑技巧" class="article-share-link">Share</a>
       
       
       
@@ -149,65 +151,49 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h3 id="Hexo的安装与初始化"><a href="#Hexo的安装与初始化" class="headerlink" title="Hexo的安装与初始化"></a>Hexo的安装与初始化</h3><ol>
-<li><p>在博客目录下安装Hexo</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-
+<li><p>在博客目录下<code>npm install hexo-cli -g</code>安装Hexo</p>
 <p><img src="/2f70a9be3c85/image-20220425203226069.png"></p>
 </li>
-<li><p>Hexo初始化，自动下载相关依赖</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
+<li><p><code>hexo init</code>初始化，自动配置文件与下载相关依赖</p>
 <p><img src="/2f70a9be3c85/image-20220425204530718.png"></p>
 </li>
-<li><p>从md文件生成html</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g </span><br></pre></td></tr></table></figure>
-
+<li><p><code>hexo g</code>从md文件生成html </p>
 <p><img src="/2f70a9be3c85/image-20220425211558831.png"></p>
 </li>
-<li><p>启动本地服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
+<li><p><code>hexo s</code>启动本地服务</p>
 <p><img src="/2f70a9be3c85/image-20220425211807237.png"></p>
 </li>
 <li><p>访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">localhost:4000</a></p>
 <img src="/2f70a9be3c85/image-20220425212051649.png" style="zoom: 50%;"></li>
 </ol>
 <h3 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h3><ol>
-<li><p>生成密钥</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa [-C comment] <span class="comment">#三下回车</span></span><br></pre></td></tr></table></figure>
-
+<li><p><code>ssh-keygen -t rsa [-C comment]</code>生成密钥，三下回车</p>
 <p><img src="/2f70a9be3c85/image-20220425223639827.png"></p>
 </li>
-<li><p>将C:&#x2F;Users&#x2F;&lt;username&gt;&#x2F;.ssh&#x2F;id_rsa.pub的内容复制到GitHub -&gt; Settings -&gt; SSH and GPG keys -&gt; New SSH keys</p>
+<li><p>将<code>C:/Users/&lt;username&gt;/.ssh/id_rsa.pub</code>的内容复制到<code>GitHub -&gt; Settings -&gt; SSH and GPG keys -&gt; New SSH keys</code></p>
 </li>
-<li><p>验证，输入yes</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
+<li><p><code>ssh -T git@github.com</code>验证，输入yes</p>
 <p><img src="/2f70a9be3c85/image-20220425224815315.png"></p>
 </li>
-<li><p>创建Git仓库 &lt;git username&gt;.github.io，其余选项默认</p>
+<li><p>创建Git仓库<code>&lt;git username&gt;.github.io</code>，其余选项默认</p>
 </li>
-<li><p>打开BlogRoot&#x2F;_config.yml修改以下内容</p>
+<li><p>打开<code>BlogRoot/_config.yml</code>修改以下内容</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">repo</span> <span class="string">*ssh</span> <span class="string">url</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装git插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
+<li><p><code>npm install hexo-deployer-git --save</code>安装git插件</p>
 <p><img src="/2f70a9be3c85/image-20220425214815327.png"></p>
 </li>
-<li><p>清理、生成、部署</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
+<li><p><code>hexo clean</code>清理、<code>hexo g</code>生成、<code>hexo d</code>部署</p>
 <img src="/2f70a9be3c85/hexod.png" style="zoom:80%;">
 </li>
-<li><p>访问 &lt;git username&gt;.github.io，若404则稍等一会，或重复上一步</p>
+<li><p>访问 <code>&lt;git username&gt;.github.io</code>，若404则稍等一会，或重复上一步</p>
 </li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2f70a9be3c85/" data-id="cl2fxe57c0003m8vkfumxh1jh" data-title="Hexo的安装与部署" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2f70a9be3c85/" data-id="cl2fzs6pb0003owvk28k2hjs3" data-title="Hexo的安装与部署" class="article-share-link">Share</a>
       
       
       
@@ -246,16 +232,16 @@
 </li>
 <li><p>一路next，“Automatically”选项勾选的话会先安装chocolatey，然后用choco安装最新版python和VS-workload-vctools，建议不勾</p>
 </li>
-<li><p>修改npm的cache与全局路径（先新建相应文件夹）</p>
+<li><p>修改npm的全局路径与cache路径（先新建相应文件夹）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;F:\nodejs\node_global&quot;</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">&quot;F:\nodejs\node_cache&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>环境变量</p>
 <ol>
-<li>将用户变量下”Roaming\npm”修改为”nodejs\node_global”</li>
-<li>添加系统变量NODE_PATH: “F:\nodejs\node_global\node_modules”（文件夹不存在也没关系）</li>
+<li>将用户变量下<code>Roaming\npm</code>修改为<code>nodejs\node_global</code></li>
+<li>添加系统变量<code>NODE_PATH: F:\nodejs\node_global\node_modules</code>（文件夹不存在也没关系）</li>
 </ol>
 </li>
-<li><p>“F:\nodejs”修改User权限为完全控制</p>
+<li><p>文件夹<code>F:\nodejs</code>修改User权限为完全控制</p>
 </li>
 <li><p>验证</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">npm root -g</span><br></pre></td></tr></table></figure></li>
@@ -269,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/4ff129f86648/" data-id="cl2fxe5770001m8vkc21e91xf" data-title="Install Notes" class="article-share-link">Share</a>
+      <a data-url="http://example.com/4ff129f86648/" data-id="cl2fzs6oz0001owvkahst04n9" data-title="Install Notes" class="article-share-link">Share</a>
       
       
       
@@ -303,7 +289,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="CodeBlock-test"><a href="#CodeBlock-test" class="headerlink" title="CodeBlock test"></a>CodeBlock test</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Inline-Code-test"><a href="#Inline-Code-test" class="headerlink" title="Inline Code test"></a>Inline Code test</h2><p>这里是<code>rm -rf /*</code>行内代码</p>
+<h2 id="CodeBlock-test"><a href="#CodeBlock-test" class="headerlink" title="CodeBlock test"></a>CodeBlock test</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Table-test"><a href="#Table-test" class="headerlink" title="Table test"></a>Table test</h2><table>
 <thead>
@@ -334,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/43bcead6dc05/" data-id="cl2fxe5720000m8vk68ngbrur" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/43bcead6dc05/" data-id="cl2fzs6os0000owvk1u3263dh" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
