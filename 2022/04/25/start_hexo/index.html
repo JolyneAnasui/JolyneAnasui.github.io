@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo的安装与部署 | 念</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Hexo的安装与初始化 在博客目录下安装Hexo 1npm install hexo-cli -g    Hexo初始化，自动下载相关依赖 1hexo init    从md文件生成html 1hexo g     启动本地服务 1hexo s    访问 localhost:4000   部署到Github 生成密钥 1ssh-keygen -t rsa [-C comment] #三下回车">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo的安装与部署">
+<meta property="og:url" content="http://example.com/2022/04/25/start_hexo/index.html">
+<meta property="og:site_name" content="念">
+<meta property="og:description" content="Hexo的安装与初始化 在博客目录下安装Hexo 1npm install hexo-cli -g    Hexo初始化，自动下载相关依赖 1hexo init    从md文件生成html 1hexo g     启动本地服务 1hexo s    访问 localhost:4000   部署到Github 生成密钥 1ssh-keygen -t rsa [-C comment] #三下回车">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/04/25/start_hexo/image-20220425203226069.png">
+<meta property="og:image" content="http://example.com/2022/04/25/start_hexo/image-20220425204530718.png">
+<meta property="og:image" content="http://example.com/2022/04/25/start_hexo/image-20220425211558831.png">
+<meta property="og:image" content="http://example.com/2022/04/25/start_hexo/image-20220425211807237.png">
+<meta property="og:image" content="http://example.com/2022/04/25/start_hexo/image-20220425212051649.png">
+<meta property="og:image" content="http://example.com/2022/04/25/start_hexo/image-20220425223639827.png">
+<meta property="og:image" content="http://example.com/2022/04/25/start_hexo/image-20220425224815315.png">
+<meta property="og:image" content="http://example.com/2022/04/25/start_hexo/image-20220425214815327.png">
+<meta property="og:image" content="http://example.com/2022/04/25/start_hexo/hexod.png">
+<meta property="article:published_time" content="2022-04-25T15:44:47.000Z">
+<meta property="article:modified_time" content="2022-04-26T08:29:10.946Z">
+<meta property="article:author" content="JolyneAnasui">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/04/25/start_hexo/image-20220425203226069.png">
+  
+    <link rel="alternate" href="/atom.xml" title="念" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">念</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-start_hexo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/25/start_hexo/" class="article-date">
+  <time class="dt-published" datetime="2022-04-25T15:44:47.000Z" itemprop="datePublished">2022-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Hexo的安装与部署
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Hexo的安装与初始化"><a href="#Hexo的安装与初始化" class="headerlink" title="Hexo的安装与初始化"></a>Hexo的安装与初始化</h3><ol>
+<li><p>在博客目录下安装Hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/25/start_hexo/image-20220425203226069.png"></p>
+</li>
+<li><p>Hexo初始化，自动下载相关依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/25/start_hexo/image-20220425204530718.png"></p>
+</li>
+<li><p>从md文件生成html</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/25/start_hexo/image-20220425211558831.png"></p>
+</li>
+<li><p>启动本地服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/25/start_hexo/image-20220425211807237.png"></p>
+</li>
+<li><p>访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">localhost:4000</a></p>
+<img src="/2022/04/25/start_hexo/image-20220425212051649.png" alt="image-20220425212051649" style="zoom: 50%;"></li>
+</ol>
+<h3 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h3><ol>
+<li><p>生成密钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa [-C comment] <span class="comment">#三下回车</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/25/start_hexo/image-20220425223639827.png"></p>
+</li>
+<li><p>将C:&#x2F;Users&#x2F;&lt;username&gt;&#x2F;.ssh&#x2F;id_rsa.pub的内容复制到GitHub -&gt; Settings -&gt; SSH and GPG keys -&gt; New SSH keys</p>
+</li>
+<li><p>验证，输入yes</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/25/start_hexo/image-20220425224815315.png"></p>
+</li>
+<li><p>创建Git仓库 &lt;git username&gt;.github.io，其余选项默认</p>
+</li>
+<li><p>打开BlogRoot&#x2F;_config.yml修改以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">repo</span> <span class="string">*ssh</span> <span class="string">url</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装git插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/25/start_hexo/image-20220425214815327.png"></p>
+</li>
+<li><p>清理、生成、部署</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/04/25/start_hexo/hexod.png" alt="hexod" style="zoom:80%;">
+</li>
+<li><p>访问 &lt;git username&gt;.github.io，若404则稍等一会，或重复上一步</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/25/start_hexo/" data-id="cl2fvwuhi0003twvkhwew1wbb" data-title="Hexo的安装与部署" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/26/hexo_skills/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hexo编辑技巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/25/install_notes/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Install Notes</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/26/hexo_skills/">Hexo编辑技巧</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/25/start_hexo/">Hexo的安装与部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/25/install_notes/">Install Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/25/hello_world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 JolyneAnasui<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
