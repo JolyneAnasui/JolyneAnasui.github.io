@@ -71,81 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-start_hexo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/25/start_hexo/" class="article-date">
-  <time class="dt-published" datetime="2022-04-25T15:44:47.000Z" itemprop="datePublished">2022-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/25/start_hexo/">Hexo的安装与部署</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><ol>
-<li><pre><code class="bash">npm install hexo-cli -g
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   ![image-20220425203226069](image-20220425203226069.png)</span><br><span class="line"></span><br><span class="line">2. ```bash</span><br><span class="line">   hexo init</span><br></pre></td></tr></table></figure>
-
-![image-20220425204530718](image-20220425204530718.png)
-</code></pre>
-</li>
-<li><pre><code class="bash">hexo g 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   ![image-20220425211558831](image-20220425211558831.png)</span><br><span class="line"></span><br><span class="line">4. ```</span><br><span class="line">   hexo s</span><br></pre></td></tr></table></figure>
-
-![image-20220425211807237](image-20220425211807237.png)
-</code></pre>
-</li>
-<li><p>访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">localhost:4000</a></p>
-<img src="/.com//image-20220425212051649.png" alt="image-20220425212051649" style="zoom: 50%;"></li>
-</ol>
-<h3 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h3><ol>
-<li><pre><code class="bash">ssh-keygen -t rsa [-C comment] #三下回车
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   ![image-20220425223639827](image-20220425223639827.png)</span><br><span class="line"></span><br><span class="line">2. 将C:/Users/&amp;lt;username&amp;gt;/.ssh/id_rsa.pub的内容复制到GitHub -&gt; Settings -&gt; SSH and GPG keys -&gt; New SSH keys</span><br><span class="line"></span><br><span class="line">3. ```bash</span><br><span class="line">   ssh -T git@github.com #验证，输入yes</span><br></pre></td></tr></table></figure>
-
-![image-20220425224815315](image-20220425224815315.png)
-</code></pre>
-</li>
-<li><p>创建Git仓库 &lt;git username&gt;.github.io，其余选项默认</p>
-</li>
-<li><p>打开BlogRoot&#x2F;_config.yml修改以下内容</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">repo</span> <span class="string">*ssh</span> <span class="string">url</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><pre><code class="bash">npm install hexo-deployer-git --save
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   ![image-20220425214815327](image-20220425214815327.png)</span><br><span class="line"></span><br><span class="line">7. ```bash</span><br><span class="line">   hexo clean</span><br><span class="line">   hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-&lt;img src=&quot;hexod.png&quot; alt=&quot;hexod&quot; style=&quot;zoom:80%;&quot; /&gt;
-</code></pre>
-</li>
-<li><p>访问 &lt;git username&gt;.github.io，若404则稍等一会，或重复上一步</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/25/start_hexo/" data-id="cl2fu0dby0002lcvk2z8d9vlz" data-title="Hexo的安装与部署" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-install_notes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/04/25/install_notes/" class="article-date">
@@ -196,7 +121,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/25/install_notes/" data-id="cl2fu0dbw0001lcvkd2lldlwr" data-title="Install Notes" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/25/install_notes/" data-id="cl2fv23df00013cvk05839d7e" data-title="Install Notes" class="article-share-link">Share</a>
       
       
       
@@ -243,11 +168,12 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="Image-test"><a href="#Image-test" class="headerlink" title="Image test"></a>Image test</h3><p><img src="/2022/04/25/hello_world/kumiko.PNG"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/25/hello_world/" data-id="cl2fu0dbq0000lcvk86t3hkow" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/25/hello_world/" data-id="cl2fv23da00003cvk39mw2ald" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -288,10 +214,6 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2022/04/25/start_hexo/">Hexo的安装与部署</a>
-          </li>
         
           <li>
             <a href="/2022/04/25/install_notes/">Install Notes</a>
