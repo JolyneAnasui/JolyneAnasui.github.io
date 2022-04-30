@@ -844,8 +844,7 @@ body.loaded #brand .pjax,
   -webkit-animation: slideDownIn 0.3s;
           animation: slideDownIn 0.3s;
 }
-.blur,
-.lozaded {
+.blur {
   -webkit-animation: blur 0.8s ease-in-out forwards;
           animation: blur 0.8s ease-in-out forwards;
 }
