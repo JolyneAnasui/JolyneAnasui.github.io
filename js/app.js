@@ -1862,6 +1862,12 @@ const postBeauty = function () {
       }
     });
 
+    var outsideClickListener = function(event) {
+      if (!element.contains(event.target)) {
+        fullscreenHandle();
+      }
+    };
+
     var fullscreenBtn = element.child('.fullscreen-btn');
     var removeFullscreen = function() {
       element.removeClass('fullscreen');
@@ -1870,16 +1876,27 @@ const postBeauty = function () {
       fullscreenBtn.child('.ic').className = 'ic i-expand';
     }
     var fullscreenHandle = function(event) {
-      var target = event.currentTarget;
+      // var target = event.currentTarget;
       if (element.hasClass('fullscreen')) {
         removeFullscreen();
         hideCode && hideCode();
-        pageScroll(element)
+        // pageScroll(element)
+
+        if (showBtn) showBtn.style.display = '';
+        document.removeEventListener('mouseup', outsideClickListener);
       } else {
         element.addClass('fullscreen');
         BODY.addClass('fullscreen');
         fullscreenBtn.child('.ic').className = 'ic i-compress';
         showCode && showCode();
+
+        // hide showBtn
+        if (showBtn) showBtn.style.display = 'none'; 
+        // cancel fullscreen when click outside
+        document.addEventListener('mouseup', outsideClickListener)
+        // hide navBar
+        siteNav.removeClass('up');
+        siteNav.toggleClass('down', window.pageYOffset > headerHightInner);
       }
     }
     fullscreenBtn.addEventListener('click', fullscreenHandle);
@@ -1905,7 +1922,7 @@ const postBeauty = function () {
         if (showBtn.hasClass('open')) {
           removeFullscreen()
           hideCode()
-          pageScroll(code_container)
+          // pageScroll(code_container)
         } else {
           showCode()
         }
