@@ -2336,6 +2336,7 @@ main >.inner {
   align-items: flex-start;
   flex-wrap: wrap;
   z-index: 1;
+  transition: all 0.2s ease-in-out 0s;
 }
 .panels {
   padding: 4.6875rem 0 2rem;

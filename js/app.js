@@ -1294,6 +1294,7 @@ const scrollHandle = function (event) {
   var contentVisibilityHeight = docHeight > winHeight ? docHeight - winHeight : document.body.scrollHeight - winHeight;
   var SHOW = window.pageYOffset > headerHightInner;
   var startScroll = window.pageYOffset > 0;
+  var sideBarAffix = window.pageYOffset > headerHight && document.body.offsetWidth > 991;
 
   if (SHOW) {
     changeMetaTheme('#FFF');
@@ -1304,7 +1305,7 @@ const scrollHandle = function (event) {
   siteNav.toggleClass('show', SHOW);
   toolBtn.toggleClass('affix', startScroll);
   siteBrand.toggleClass('affix', startScroll);
-  sideBar.toggleClass('affix', window.pageYOffset > headerHight && document.body.offsetWidth > 991);
+  sideBar.toggleClass('affix', sideBarAffix);
 
   if (typeof scrollAction.y == 'undefined') {
     scrollAction.y = window.pageYOffset;
@@ -1323,10 +1324,17 @@ const scrollHandle = function (event) {
     // Scroll down
     siteNav.removeClass('up')
     siteNav.toggleClass('down', SHOW);
+    sideBar.querySelector('.inner').style.transform = "";
   } else if (diffY > 0) {
     // Scroll up
     siteNav.removeClass('down')
     siteNav.toggleClass('up', SHOW);
+    if (SHOW && sideBarAffix) {
+      sideBar.querySelector('.inner').style.transform = "translateY(" + siteNavHeight + "px)";
+    }else if (SHOW) {
+      var delta = Math.max(0, window.pageYOffset + siteNavHeight + 10 - headerHight - parseFloat(window.getComputedStyle(sideBar.querySelector('.tab'), null)['paddingTop']));
+      sideBar.querySelector('.inner').style.transform = "translateY(" + delta + "px)";
+    }else sideBar.querySelector('.inner').style.transform = "";    
   } else {
     // First scroll event
   }
