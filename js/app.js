@@ -1331,7 +1331,7 @@ const scrollHandle = function (event) {
     siteNav.toggleClass('up', SHOW);
     if (SHOW && sideBarAffix) {
       sideBar.querySelector('.inner').style.top = siteNavHeight + "px";
-    }else if (SHOW) {
+    }else if (SHOW && sideBar.querySelector('.tab')) {
       var delta = Math.max(0, window.pageYOffset + siteNavHeight + 10 - headerHight - parseFloat(window.getComputedStyle(sideBar.querySelector('.tab'), null)['paddingTop']));
       sideBar.querySelector('.inner').style.top = delta + "px";
     }else sideBar.querySelector('.inner').style.top = "";
