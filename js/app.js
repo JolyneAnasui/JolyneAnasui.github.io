@@ -1324,17 +1324,17 @@ const scrollHandle = function (event) {
     // Scroll down
     siteNav.removeClass('up')
     siteNav.toggleClass('down', SHOW);
-    sideBar.querySelector('.inner').style.transform = "";
+    sideBar.querySelector('.inner').style.top = "";
   } else if (diffY > 0) {
     // Scroll up
     siteNav.removeClass('down')
     siteNav.toggleClass('up', SHOW);
     if (SHOW && sideBarAffix) {
-      sideBar.querySelector('.inner').style.transform = "translateY(" + siteNavHeight + "px)";
+      sideBar.querySelector('.inner').style.top = siteNavHeight + "px";
     }else if (SHOW) {
       var delta = Math.max(0, window.pageYOffset + siteNavHeight + 10 - headerHight - parseFloat(window.getComputedStyle(sideBar.querySelector('.tab'), null)['paddingTop']));
-      sideBar.querySelector('.inner').style.transform = "translateY(" + delta + "px)";
-    }else sideBar.querySelector('.inner').style.transform = "";    
+      sideBar.querySelector('.inner').style.top = delta + "px";
+    }else sideBar.querySelector('.inner').style.top = "";
   } else {
     // First scroll event
   }
