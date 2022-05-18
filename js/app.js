@@ -1,4 +1,4 @@
-var CONFIG = {"version":"0.2.5","hostname":"http://example.com","root":"/","statics":"/","favicon":{"normal":"images/favicon.ico","hidden":"images/failure.ico"},"darkmode":false,"auto_scroll":false,"js":{"valine":"gh/amehime/MiniValine@4.2.2-beta10/dist/MiniValine.min.js","chart":"npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js","copy_tex":"npm/katex@0.12.0/dist/contrib/copy-tex.min.js","fancybox":"combine/npm/jquery@3.5.1/dist/jquery.min.js,npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js,npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"},"css":{"valine":"css/comment.css","katex":"npm/katex@0.12.0/dist/katex.min.css","mermaid":"css/mermaid.css","fancybox":"combine/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"},"loader":{"start":true,"switch":false},"search":null,"valine":{"appId":null,"appKey":null,"placeholder":"ヽ(○´∀`)ﾉ♪","avatar":"mp","pageSize":10,"lang":"en","visitor":true,"NoRecordIP":false,"serverURLs":null,"powerMode":true,"tagMeta":{"visitor":"新朋友","master":"主人","friend":"小伙伴","investor":"金主粑粑"},"tagColor":{"master":"var(--color-orange)","friend":"var(--color-aqua)","investor":"var(--color-pink)"},"tagMember":{"master":null,"friend":null,"investor":null}},"quicklink":{"timeout":3000,"priority":true}};const getRndInteger = function (min, max) {
+var CONFIG = {"version":"0.2.5","hostname":"http://example.com","root":"/","statics":"/","favicon":{"normal":"images/favicon.ico","hidden":"images/failure.ico"},"darkmode":false,"auto_scroll":false,"js":{"chart":"frappe-charts%401.5.0.min.iife.min.js","copy_tex":"copy-tex%400.12.0.min.js","fancybox":"jquery%26fancybox%26justifiedGallery.min.js"},"css":{"katex":"katex%400.12.0.min.css","mermaid":"mermaid.css","fancybox":"fancybox%26justifiedGallery.min.css"},"loader":{"start":true,"switch":false},"search":null,"quicklink":{"timeout":3000,"priority":true}};const getRndInteger = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -25,13 +25,7 @@ const getScript = function(url, callback, condition) {
 
 const assetUrl = function(asset, type) {
   var str = CONFIG[asset][type]
-  if(str.indexOf('npm')>-1||str.indexOf('gh')>-1||str.indexOf('combine')>-1)
-    return "//cdn.jsdelivr.net/" + str
-
-  if(str.indexOf('http')>-1)
-    return str
-
-  return statics + str;
+  return `https://jolyneanasui-blog.oss-cn-hangzhou.aliyuncs.com/${asset}/${str}`;
 }
 
 const vendorJs = function(type, callback, condition) {
@@ -1121,7 +1115,7 @@ const menuToggle = siteNav.child('.toggle');
 const quickBtn = $('#quick');
 const sideBar = $('#sidebar');
 const siteBrand = $('#brand');
-var toolBtn = $('#tool'), toolPlayer, backToTop, goToComment, showContents;
+var toolBtn = $('#tool'), toolPlayer, backToTop, showContents;
 var siteSearch = $('#search');
 var siteNavHeight, headerHightInner, headerHight;
 var oWinHeight = window.innerHeight;
@@ -1619,9 +1613,6 @@ const goToBottomHandle = function () {
   pageScroll(parseInt(Container.height()));
 }
 
-const goToCommentHandle = function () {
-  pageScroll($('#comments'));
-}
 
 const menuActive = function () {
   $.each('.menu .item:not(.title)', function (element) {
@@ -1772,7 +1763,6 @@ const postFancybox = function(p) {
 }
 
 const postBeauty = function () {
-  loadComments();
 
   if(!$('.md'))
     return
@@ -2063,30 +2053,7 @@ const tabFormat = function() {
   });
 }
 
-const loadComments = function () {
-  var element = $('#comments');
-  if (!element) {
-    goToComment.display("none")
-    return;
-  } else {
-    goToComment.display("")
-  }
 
-  if (!window.IntersectionObserver) {
-    vendorCss('valine');
-  } else {
-    var io = new IntersectionObserver(function(entries, observer) {
-      var entry = entries[0];
-      vendorCss('valine');
-      if (entry.isIntersecting || entry.intersectionRatio > 0) {
-        transition($('#comments'), 'bounceUpIn');
-        observer.disconnect();
-      }
-    });
-
-    io.observe(element);
-  }
-}
 
 const algoliaSearch = function(pjax) {
   if(CONFIG.search === null)
@@ -2229,17 +2196,15 @@ const domInit = function() {
   if(!toolBtn) {
     toolBtn = siteHeader.createChild('div', {
       id: 'tool',
-      innerHTML: '<div class="item player"></div><div class="item contents"><i class="ic i-list-ol"></i></div><div class="item chat"><i class="ic i-comments"></i></div><div class="item back-to-top"><i class="ic i-arrow-up"></i><span>0%</span></div>'
+      innerHTML: '<div class="item player"></div><div class="item contents"><i class="ic i-list-ol"></i></div><div class="item back-to-top"><i class="ic i-arrow-up"></i><span>0%</span></div>'
     });
   }
 
   toolPlayer = toolBtn.child('.player');
   backToTop = toolBtn.child('.back-to-top');
-  goToComment = toolBtn.child('.chat');
   showContents = toolBtn.child('.contents');
 
   backToTop.addEventListener('click', backToTopHandle);
-  goToComment.addEventListener('click', goToCommentHandle);
   showContents.addEventListener('click', sideBarToggleHandle);
 
   mediaPlayer(toolPlayer)
@@ -2271,21 +2236,6 @@ const siteRefresh = function (reload) {
   vendorJs('copy_tex');
   vendorCss('mermaid');
   vendorJs('chart');
-  vendorJs('valine', function() {
-    var options = Object.assign({}, CONFIG.valine);
-    options = Object.assign(options, LOCAL.valine||{});
-    options.el = '#comments';
-    options.pathname = LOCAL.path;
-    options.pjax = pjax;
-    options.lazyload = lazyload;
-
-    new MiniValine(options);
-
-    setTimeout(function(){
-      positionInit(1);
-      postFancybox('.v');
-    }, 1000);
-  }, window.MiniValine);
 
   if(!reload) {
     $.each('script[data-pjax]', pjaxScript);
