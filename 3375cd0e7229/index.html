@@ -115,12 +115,12 @@ Alt Name = 念 = subtitle</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljgocqbj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicljgocqbj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
         </ul>
       </div>
     </header>
@@ -175,14 +175,14 @@ Alt Name = 念 = subtitle</title>
 <figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>$ hexo s</pre></td></tr><tr><td data-num="2"></td><td><pre>INFO  Validating config</pre></td></tr><tr><td data-num="3"></td><td><pre>INFO  Start processing</pre></td></tr><tr><td data-num="4"></td><td><pre>INFO  Hexo is running at http://localhost:4000/ <span class="token builtin class-name">.</span> Press Ctrl+C to stop.</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">(</span>node:13436<span class="token punctuation">)</span> Warning: Accessing non-existent property <span class="token string">'lineno'</span> of module exports inside circular dependency</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">(</span>Use <span class="token variable"><span class="token variable">`</span><span class="token function">node</span> --trace-warnings <span class="token punctuation">..</span>.<span class="token variable">`</span></span> to show where the warning was created<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">(</span>node:13436<span class="token punctuation">)</span> Warning: Accessing non-existent property <span class="token string">'column'</span> of module exports inside circular dependency</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">(</span>node:13436<span class="token punctuation">)</span> Warning: Accessing non-existent property <span class="token string">'filename'</span> of module exports inside circular dependency</pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">(</span>node:13436<span class="token punctuation">)</span> Warning: Accessing non-existent property <span class="token string">'lineno'</span> of module exports inside circular dependency</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">(</span>node:13436<span class="token punctuation">)</span> Warning: Accessing non-existent property <span class="token string">'column'</span> of module exports inside circular dependency</pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">(</span>node:13436<span class="token punctuation">)</span> Warning: Accessing non-existent property <span class="token string">'filename'</span> of module exports inside circular dependency</pre></td></tr></table></figure><h1 id="问题分析"><a class="anchor" href="#问题分析">#</a> 问题分析</h1>
 <p>一通搜索后可以发现是 <code>stylus</code>  的问题，但这个问题在 20 年已经修复，详见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0eWx1cy9zdHlsdXMvcHVsbC8yNTM4"> #2538</span>，并实装在了<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0eWx1cy9zdHlsdXMvcmVsZWFzZXMvdGFnLzAuNTQuOA=="> @0.54.8</span> 版本中，修复方法也很简单，给报警告的几个属性设置 <code>null</code>  为默认值即可</p>
 <p>20 年已经修复的问题为何在 22 年又出现了，使用 <code>npx cross-env NODE_OPTIONS=&quot;--trace-warnings&quot; hexo s</code>  进行追踪可以发现<a target="_blank" rel="noopener" href="https://blog.orz.at/2021/07/24/hexo-node14/"><sup> [3]</sup></a>，是 <code>nib</code>  的依赖里使用了旧版本的 <code>stylus</code> ，如下图所示</p>
-<p><img data-src="/3375cd0e7229/image-20220507034115023.png" alt></p>
+<p><img data-src="https://jolyneanasui-images.oss-cn-hangzhou.aliyuncs.com/blog/5d9217fb126b056b4c7ec735bb81a3df.png" alt></p>
 <p>其实不管是 <code>hexo-renderer-stylus</code>  还是 <code>nib</code> ，在相应 Git 仓库的 <code>package.json</code>  里已经提高了对 <code>stylus</code>  的版本要求，而在<span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tLw=="> npmJs</span> 源上前者上次发版是 2 年前， <code>stylus</code>  的更新 cover 到了，后者则是 6 年前，显然 cover 不到</p>
 <h1 id="解决方案45"><a class="anchor" href="#解决方案45">#</a> 解决方案<a target="_blank" rel="noopener" href="https://github.com/stylus/nib/issues/354#issuecomment-1084688184"><sup> [4]</sup></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/a/48524488"><sup>[5]</sup></a></h1>
 <p>在 <code>&lt;BlogRoot&gt;/package.json</code>  中加入以下内容</p>
 <figure class="highlight json"><figcaption data-lang="JSON"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token property">"overrides"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">"nib"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">"stylus"</span><span class="token operator">:</span> <span class="token string">"^0.54.8"</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>然后再卸载重新安装 <code>hexo-renderer-stylus</code>  即可，效果如下</p>
-<p><img data-src="/3375cd0e7229/image-20220507034024033.png" alt="image-20220507034024033"></p>
+<p><img data-src="https://jolyneanasui-images.oss-cn-hangzhou.aliyuncs.com/blog/e084328d2710fc0d7fc5ca4066aa0e92.png" alt="image-20220507034024033"></p>
 <p>其中， <code>deduped</code>  指 <code>de-duplicated</code> ，详见<span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9hLzUyODYwNDc5"> [6]</span></p>
-<h1 id="参考"><a class="anchor" href="#参考">#</a> 参考</h1>
+<h1 id="参考资料"><a class="anchor" href="#参考资料">#</a> 参考资料</h1>
 <ol>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0eWx1cy9zdHlsdXMvcHVsbC8yNTM4">https://github.com/stylus/stylus/pull/2538</span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0eWx1cy9zdHlsdXMvcmVsZWFzZXMvdGFnLzAuNTQuOA==">https://github.com/stylus/stylus/releases/tag/0.54.8</span></li>
@@ -202,7 +202,7 @@ Alt Name = 念 = subtitle</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-05-07 06:16:51" itemprop="dateModified" datetime="2022-05-07T06:16:51+08:00">2022-05-07</time>
+    <time title="修改时间：2022-05-23 20:04:52" itemprop="dateModified" datetime="2022-05-23T20:04:52+08:00">2022-05-23</time>
   </span>
 
 </div>
@@ -235,7 +235,7 @@ Alt Name = 念 = subtitle</title>
     <div class="item left">
       
 
-  <a href="/7e446ae38e3a/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew8gmvyj20zk0m87wh.jpg" title="Theme Shoka">
+  <a href="/7e446ae38e3a/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipey0a334j20zk0m8qpt.jpg" title="Theme Shoka">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>Theme Shoka</h3>
@@ -245,7 +245,7 @@ Alt Name = 念 = subtitle</title>
     <div class="item right">
       
 
-  <a href="/9925c2635da8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4lm9i7j20zk0m84qp.jpg" title="博客日志">
+  <a href="/9925c2635da8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipet4bz0yj20zk0m8e81.jpg" title="博客日志">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>博客日志</h3>
@@ -264,7 +264,7 @@ Alt Name = 念 = subtitle</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text"> 问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text"> 问题分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%8845"><span class="toc-number">3.</span> <span class="toc-text"> 解决方案 [4][5]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text"> 参考</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text"> 问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text"> 问题分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%8845"><span class="toc-number">3.</span> <span class="toc-text"> 解决方案 [4][5]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text"> 参考资料</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -279,7 +279,7 @@ Alt Name = 念 = subtitle</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">6</span>
+        <span class="count">7</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -343,13 +343,13 @@ Alt Name = 念 = subtitle</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">11k 字</span>
+    <span title="站点总字数">14k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">10 分钟</span>
+    <span title="站点阅读时长">13 分钟</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
