@@ -74,7 +74,7 @@ Alt Name = 念 = subtitle</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2.2k</span>
+    <span>2.3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -114,14 +114,7 @@ Alt Name = 念 = subtitle</title>
 
       </div>
       <div id="imgs" class="pjax">
-        <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
-        </ul>
+          <img src="https://jolyneanasui-images.oss-cn-hangzhou.aliyuncs.com/blog/387d5a6f28fd6ca6ecab8c757d27a553.png">
       </div>
     </header>
     <div id="waves">
@@ -168,7 +161,7 @@ Alt Name = 念 = subtitle</title>
 <p>为什么要重复造轮子？<span class="spoiler" title="你知道得太多了">因为轮子就在那</span></p>
 </div>
 <p>因为前阵子 Jsdelivr<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2pzZGVsaXZyL2pzZGVsaXZyL2lzc3Vlcy8xODM5Nw=="> 挂了</span>，就把博客上的静态文件都迁移到了阿里云 OSS 上，顺便做个图床，于是上手了 PicGo <s>也就有了图像压缩的需求</s></p>
-<p>在 PicGo 现有的图像压缩插件中，sharp 和 imagemin 不太了解，色彩笔和 TingPng 是基于在线网站 API 的，个人不太喜欢，随手一搜发现 Google 有一个在线图像压缩工具<span class="exturl" data-url="aHR0cHM6Ly9zcXVvb3NoLmFwcC8="> Squoosh</span>，同时还在 GitHub 上提供了本地 API 和 CLI 版本，<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0dvb2dsZUNocm9tZUxhYnMvc3F1b29zaA==">详见此处</span>，于是就决定用它来开发一个插件</p>
+<p>在 PicGo 现有的图像压缩插件中，sharp 和 imagemin 不太了解，色彩笔和 TingPng 是基于在线网站 API 的，个人不太喜欢，随手一搜发现 Google 有一个在线图像压缩工具<span class="exturl" data-url="aHR0cHM6Ly9zcXVvb3NoLmFwcC8=">「Squoosh」</span>，同时还在 GitHub 上提供了本地 API 和 CLI 版本，<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0dvb2dsZUNocm9tZUxhYnMvc3F1b29zaA==">详见此处</span>，于是就决定用它来开发一个插件</p>
 <h2 id="准备工作"><a class="anchor" href="#准备工作">#</a> 准备工作</h2>
 <ol>
 <li>
@@ -211,28 +204,23 @@ Alt Name = 念 = subtitle</title>
 <li>软件左下角的ℹ️可以调出控制台 <span class="spoiler" title="你知道得太多了">虽然我开发完了才发现有这个功能</span></li>
 </ul>
 <h2 id="发布"><a class="anchor" href="#发布">#</a> 发布</h2>
-<ul>
-<li>
-<p>Github</p>
-<ul>
+<h3 id="github"><a class="anchor" href="#github">#</a> Github</h3>
+<ol>
 <li>push 就完事了</li>
 <li>给<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BpY0dvL0F3ZXNvbWUtUGljR28="> Awesome-PicGo</span> 提一个 PR</li>
-</ul>
-</li>
-<li>
-<p>npm</p>
-<ul>
+</ol>
+<h3 id="npm"><a class="anchor" href="#npm">#</a> npm</h3>
+<ol>
 <li><code>npm login</code>  登录账号</li>
 <li><code>npm publish</code>  发布（注意每次 publish 时版本号必须增加，否则无法发布）</li>
-</ul>
-</li>
-</ul>
+</ol>
 <h2 id="参考资料"><a class="anchor" href="#参考资料">#</a> 参考资料</h2>
 <ol>
 <li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2Rpc3QvbGF0ZXN0LXYxNi54L2RvY3MvYXBpL2J1ZmZlci5odG1sI2J1ZmJ1ZmZlcg==">https://nodejs.org/dist/latest-v16.x/docs/api/buffer.html#bufbuffer</span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9hLzMxMzk0MjU3">https://stackoverflow.com/a/31394257</span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC81YjhjNjk1NDc0ZjA=">https://www.jianshu.com/p/5b8c695474f0</span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC81ZWE1M2QxNjIzYWM=">https://www.jianshu.com/p/5ea53d1623ac</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pY3MubWVkaWEvZW50cnkvMjIwMjA0Lw==">https://ics.media/entry/220204/</span></li>
 <li>更多信息请参考官方文档 —— <span class="exturl" data-url="aHR0cHM6Ly9waWNnby5naXRodWIuaW8vUGljR28tQ29yZS1Eb2Mv">https://picgo.github.io/PicGo-Core-Doc/</span></li>
 </ol>
 
@@ -246,7 +234,7 @@ Alt Name = 念 = subtitle</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-05-25 00:12:02" itemprop="dateModified" datetime="2022-05-25T00:12:02+08:00">2022-05-25</time>
+    <time title="修改时间：2022-05-25 15:18:11" itemprop="dateModified" datetime="2022-05-25T15:18:11+08:00">2022-05-25</time>
   </span>
 
 </div>
@@ -279,7 +267,7 @@ Alt Name = 念 = subtitle</title>
     <div class="item left">
       
 
-  <a href="/9925c2635da8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicis3attqj20zk0m8k7l.jpg" title="博客日志">
+  <a href="/9925c2635da8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeuibk9fj20zk0m8ay2.jpg" title="博客日志">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>博客日志</h3>
@@ -300,7 +288,7 @@ Alt Name = 念 = subtitle</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text"> 🐴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text"> 测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B8%83"><span class="toc-number">4.</span> <span class="toc-text"> 发布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text"> 参考资料</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text"> 🐴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text"> 测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B8%83"><span class="toc-number">4.</span> <span class="toc-text"> 发布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#github"><span class="toc-number">4.1.</span> <span class="toc-text"> Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#npm"><span class="toc-number">4.2.</span> <span class="toc-text"> npm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text"> 参考资料</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
